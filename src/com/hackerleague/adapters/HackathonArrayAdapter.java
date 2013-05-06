@@ -37,10 +37,9 @@ public class HackathonArrayAdapter extends ArrayAdapter<JSONObject> {
 	    JSONObject hackathon = this.values[position];
 
 	    try {
-
-	    	UrlImageViewHelper.setUrlDrawable(iconView, hackathon.getString("icon"));
-		    titleView.setText(hackathon.getString("title"));
-		    dateView.setText(hackathon.getString("date"));
+	    	UrlImageViewHelper.setUrlDrawable(iconView, hackathon.getString("logo"));
+		    titleView.setText(hackathon.getString("name"));
+		    dateView.setText(hackathon.getString("start_time"));
 	    } catch(Exception e) {
 	    	Log.e("hackerleague", e.toString());
 	    }

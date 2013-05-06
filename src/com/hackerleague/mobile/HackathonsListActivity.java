@@ -5,7 +5,6 @@ import org.json.JSONObject;
 
 import android.app.ListActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 
 import com.hackerleague.adapters.HackathonArrayAdapter;
@@ -18,22 +17,15 @@ public class HackathonsListActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.activity_hackathon);
 
-		JSONObject[] hackathons = new JSONObject[10];
-
-
+		HackerLeagueRestClient client = null;
 		try {
-			for(int i = 0; i < hackathons.length; i++) {
-				JSONObject hackathonHRU = new JSONObject();
+			client = new HackerLeagueRestClient();
+		} catch (JSONException e1) { e1.printStackTrace(); }
 
-				hackathonHRU.put("icon", "http://placekitten.com/50/50");
-				hackathonHRU.put("title", "HackRU " + i);
-				hackathonHRU.put("date", "February 12, 1991");
-
-				hackathons[i] = hackathonHRU;
-			}
-		} catch (JSONException e) {
-	    	Log.e("hackerleague", e.toString());
-		}
+		JSONObject[] hackathons = null;
+		try {
+			hackathons = client.getHackathons(0, -1);
+		} catch (JSONException e1) { e1.printStackTrace(); }
 
 		HackathonArrayAdapter adapter = new HackathonArrayAdapter(this, hackathons);
 
