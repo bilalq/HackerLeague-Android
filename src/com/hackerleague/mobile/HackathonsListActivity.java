@@ -30,7 +30,24 @@ public class HackathonsListActivity extends ListActivity {
 
 		JSONObject[] hackathons = null;
 		try {
-			hackathons = client.getHackathons(0, -1);
+		  String time;
+		  Intent self = this.getIntent();
+		  if (self != null) {
+		      time = this.getIntent().getStringExtra("time");
+		  } else {
+		      time = null;
+		  }
+		  if (time == null) {
+		    hackathons = client.getHackathons();
+		  } else if(time.equals("past")) {
+		    hackathons = client.getPastHackathons();
+		  } else if(time.equals("happening")) {
+		    hackathons = client.getCurrentHackathons();
+		  } else if(time.equals("upcoming")) {
+		    hackathons = client.getFutureHackathons();
+		  } else {
+		    hackathons = client.getHackathons();
+		  }
 		} catch (JSONException e1) { e1.printStackTrace(); }
 
 		HackathonArrayAdapter adapter = new HackathonArrayAdapter(this, hackathons);
@@ -81,11 +98,20 @@ public class HackathonsListActivity extends ListActivity {
           startActivity(profileIntent);
 		        return true;
 		    case R.id.action_past:
+		      Intent pastIntent = new Intent(this, HackathonsListActivity.class);
+		      pastIntent.putExtra("time", "past");
+		      startActivity(pastIntent);
 		        return true;
 		    case R.id.action_happening:
-		        return true;
+          Intent happeningIntent = new Intent(this, HackathonsListActivity.class);
+          happeningIntent.putExtra("time", "happening");
+          startActivity(happeningIntent);
+          return true;
 		    case R.id.action_upcoming:
-		        return true;
+          Intent upcomingIntent = new Intent(this, HackathonsListActivity.class);
+          upcomingIntent.putExtra("time", "upcoming");
+          startActivity(upcomingIntent);  
+          return true;
 		    case R.id.action_logout:
 		    	Intent logoutIntent = new Intent(this, MainActivity.class);
 			    logoutIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

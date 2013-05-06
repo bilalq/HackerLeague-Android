@@ -49,7 +49,7 @@ public class HackathonDetailActivity extends Activity {
 		    dateView.setText(formattedDate);
 	    } catch(Exception e) {
 	    	Log.e("hackerleague", e.toString());
-	    }
+//	    }
 
 	}
 
