@@ -43,19 +43,24 @@ public class HackathonsListActivity extends ListActivity {
 					long arg3) {
 				JSONObject obj = (JSONObject) list.getItemAtPosition(arg2);
 				try {
-					Intent detailIntent = new Intent(HackathonsListActivity.this, HackathonDetailActivity.class)
+					Intent detailIntent = new Intent(HackathonsListActivity.this, HackathonDetailActivity.class);
 					detailIntent.putExtra("id", obj.getString("id"));
 					detailIntent.putExtra("name", obj.getString("name"));
+					detailIntent.putExtra("logo", obj.getString("logo"));
 					detailIntent.putExtra("description", obj.getString("description"));
-					detailIntent.putExtra("total_hackers", obj.getString("total_hackers"));
 					detailIntent.putExtra("start_time", obj.getString("start_time"));
 					detailIntent.putExtra("end_time", obj.getString("end_time"));
-					detailIntent.putExtra("start_time", obj.getString("start_time"));
-					detailIntent.putExtra("start_time", obj.getString("start_time"));
-				} catch (JSONException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+					detailIntent.putExtra("total_hackers", obj.getInt("total_hackers"));
+					detailIntent.putExtra("total_hacks", obj.getInt("total_hacks"));
+					try {
+						JSONObject location = obj.getJSONObject("location");
+						detailIntent.putExtra("city", location.getString("city"));
+						detailIntent.putExtra("state", location.getString("state"));
+						detailIntent.putExtra("country", location.getString("country"));
+					} catch (JSONException e) { e.printStackTrace(); }
+
+					startActivity(detailIntent);
+				} catch (JSONException e) { e.printStackTrace(); }
 			}
 		});
 	}
