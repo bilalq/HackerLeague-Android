@@ -48,6 +48,7 @@ public class MainActivity extends Activity {
 			//Success
 			Intent myIntent = new Intent(this, HackathonsListActivity.class);
 			myIntent.putExtra("username", username); //Optional parameters
+		    myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			mainAct.startActivity(myIntent);
 		} else {
 			Context context = getApplicationContext();
