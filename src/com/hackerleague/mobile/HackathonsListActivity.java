@@ -74,8 +74,11 @@ public class HackathonsListActivity extends ListActivity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
+	  //
 	    switch (item.getItemId()) {
 		    case R.id.action_profile:
+		      Intent profileIntent = new Intent(this, ProfileActivity.class);
+          startActivity(profileIntent);
 		        return true;
 		    case R.id.action_past:
 		        return true;

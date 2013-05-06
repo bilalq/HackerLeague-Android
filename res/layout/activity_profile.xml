@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".ProfileActivity" >
-    
+
     <ImageView
         android:id="@+id/profile_image"
         android:layout_width="50dp"
@@ -18,25 +18,48 @@
         android:layout_marginTop="4dp"
         android:src="@drawable/ic_launcher" >
     </ImageView>
-    
+
     <LinearLayout
+        android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="vertical" >
-
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@+id/label"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/username"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@+id/label"
-            android:textSize="15sp" />
-
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/linearLayout1"
+        android:layout_centerHorizontal="true"
+        android:text="@+id/label"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/profile_image"
+        android:layout_alignLeft="@+id/name"
+        android:text="@+id/label"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/bio"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignLeft="@+id/profile_image"
+        android:layout_below="@+id/profile_image"
+        android:layout_marginTop="61dp"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_alignLeft="@+id/bio"
+        android:layout_below="@+id/profile_image"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/darker_gray" />
+
 </RelativeLayout>
