@@ -18,6 +18,18 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.setContentView(R.layout.activity_main);
+
+		EditText password = (EditText) this.findViewById(R.id.passwordText);
+		password.setOnKeyListener(new OnKeyListener(){
+		    @Override
+		    public boolean onKey(View v, int keyCode, KeyEvent event){
+		        if(keyCode == event.KEYCODE_ENTER){
+		            MainActivity.this.login(null);
+		        	return true;
+		        }
+				return false;
+		    }
+		});
 	}
 
 	@Override
@@ -37,10 +49,19 @@ public class MainActivity extends Activity {
 		String password = ((EditText)mainAct.findViewById(R.id.passwordText)).getText().toString();
 
 
-		//Success
-		Intent myIntent = new Intent(this, HackathonsListActivity.class);
-		myIntent.putExtra("username", username); //Optional parameters
-		mainAct.startActivity(myIntent);
+		if (username.equalsIgnoreCase("bilalq") && password.equals("password")) {
+			//Success
+			Intent myIntent = new Intent(this, HackathonsListActivity.class);
+			myIntent.putExtra("username", username); //Optional parameters
+			mainAct.startActivity(myIntent);
+		} else {
+			Context context = getApplicationContext();
+			CharSequence text = "Invalid Username/Password";
+			int duration = Toast.LENGTH_SHORT;
+
+			Toast toast = Toast.makeText(context, text, duration);
+			toast.show();
+		}
 	}
 
 }
