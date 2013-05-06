@@ -23,14 +23,15 @@ public class MainActivity extends Activity {
 	}
 
 	public void login(View view) {
-		Activity mainAct = MainActivity.this;
+		Activity mainAct = this;
 
 		//Login here
 		String username = ((EditText)mainAct.findViewById(R.id.emailText)).getText().toString();
 		String password = ((EditText)mainAct.findViewById(R.id.passwordText)).getText().toString();
 
+
 		//Success
-		Intent myIntent = new Intent(mainAct, HackathonsListActivity.class);
+		Intent myIntent = new Intent(this, HackathonsListActivity.class);
 		myIntent.putExtra("username", username); //Optional parameters
 		mainAct.startActivity(myIntent);
 	}

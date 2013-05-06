@@ -3,12 +3,12 @@ package com.hackerleague.mobile;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.hackerleague.adapters.HackathonArrayAdapter;
-
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+
+import com.hackerleague.adapters.HackathonArrayAdapter;
 
 
 public class HackathonsListActivity extends ListActivity {
@@ -16,7 +16,7 @@ public class HackathonsListActivity extends ListActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//this.setContentView(R.layout.activity_hackathon);
+		this.setContentView(R.layout.activity_hackathon);
 
 		JSONObject[] hackathons = new JSONObject[10];
 

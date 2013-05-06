@@ -24,7 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<!--         <activity
+         <activity
             android:name="com.hackerleague.mobile.HackathonsListActivity"
             android:label="@string/app_name">
             <intent-filter>
@@ -32,7 +32,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-         </activity> -->
+         </activity> 
     </application>
 
 </manifest>
