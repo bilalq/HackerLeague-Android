@@ -1,6 +1,7 @@
 package com.hackerleague.adapters;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.json.JSONObject;
 
@@ -41,7 +42,10 @@ public class HackathonArrayAdapter extends ArrayAdapter<JSONObject> {
 	    try {
 	    	UrlImageViewHelper.setUrlDrawable(iconView, hackathon.getString("logo"));
 		    titleView.setText(hackathon.getString("name"));
-		    dateView.setText(hackathon.getString("start_time"));
+		    Date original = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").parse(hackathon.getString("start_time"));
+		    String formattedDate = new SimpleDateFormat("dd/MM/yyyy").format(original);
+		    dateView.setText(formattedDate);
+//		    dateView.setText(hackathon.getString("start_time"));
 	    } catch(Exception e) {
 	    	Log.e("hackerleague", e.toString());
 	    }

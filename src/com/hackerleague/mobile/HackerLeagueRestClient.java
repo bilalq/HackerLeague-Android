@@ -30,7 +30,7 @@ public class HackerLeagueRestClient {
 	}
 	
 	public JSONObject[] getPastHackathons() {
-	  
+	  return null;
 	}
 
 	public JSONObject getHackathon(String id) throws JSONException {
