@@ -1,5 +1,7 @@
 package com.hackerleague.adapters;
 
+import java.text.SimpleDateFormat;
+
 import org.json.JSONObject;
 
 import android.content.Context;

@@ -16,9 +16,6 @@ public class HackerLeagueRestClient {
 
 	public JSONObject[] getHackathons(int skip, int limit) throws JSONException {
 		int length = (limit == -1) ? hackathons.length() : limit;
-		Log.i("LENGth", "" + length);
-		Log.i("ACTUA LNEGHT", ""+this.hackathons.length());
-		Log.i("MAYBE NSNSNS", ""+hackathons.length());
 		JSONObject[] hackathons = new JSONObject[length];
 		int count = 0;
 		for(int i = skip; i<(skip+length); i++) {
@@ -26,6 +23,14 @@ public class HackerLeagueRestClient {
 			count++;
 		}
 		return hackathons;
+	}
+	
+	public JSONObject[] getHackathons() throws JSONException {
+	  return this.getHackathons(0, -1);
+	}
+	
+	public JSONObject[] getPastHackathons() {
+	  
 	}
 
 	public JSONObject getHackathon(String id) throws JSONException {
