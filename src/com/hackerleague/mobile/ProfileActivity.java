@@ -9,9 +9,11 @@ import org.json.JSONObject;
 import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,8 +28,7 @@ public class ProfileActivity extends Activity {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
-    JSONObject user = client.getUser("Andrew");
-    Log.i("USER", user.toString());
+    JSONObject user = client.getUser("Bilal");
     ImageView profileImageView = (ImageView) this.findViewById(R.id.profile_image);
     TextView nameView = (TextView) this.findViewById(R.id.name);
     TextView usernameView = (TextView) this.findViewById(R.id.username);
@@ -47,5 +48,27 @@ public class ProfileActivity extends Activity {
     // Inflate the menu; this adds items to the action bar if it is present.
     this.getMenuInflater().inflate(R.menu.main, menu);
     return true;
+  }
+  
+  @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+    //
+      switch (item.getItemId()) {
+        case R.id.action_profile:
+          return true;
+        case R.id.action_past:
+            return true;
+        case R.id.action_happening:
+            return true;
+        case R.id.action_upcoming:
+            return true;
+        case R.id.action_logout:
+          Intent logoutIntent = new Intent(this, MainActivity.class);
+          logoutIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+          startActivity(logoutIntent);
+            return true;
+        default:
+            return false;
+    }
   }
 }

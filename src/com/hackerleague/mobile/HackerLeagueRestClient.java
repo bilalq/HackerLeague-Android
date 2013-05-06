@@ -120,7 +120,19 @@ public class HackerLeagueRestClient {
         e.printStackTrace();
       }
 	  } else if(name.equals("Bilal")) {
-	    
+	    try {
+        String hacks = this.hackathons.getJSONObject(2).getString("hacks");
+        return new JSONObject("{" +
+            "'name': 'Bilal Quadri'" +
+            ",'username': 'bilalq'" +
+            ",'bio': 'I am someone who has been hacking now for two years and am proficient in JS/HTML/CSS, ROR and Node.js.  Im also a ping pong master so come at me.'" +
+            ",'hacks': '" + hacks + "'" +
+            ",'image': 'https://secure.gravatar.com/avatar/c6e081b70981293c9bf312d7e42713cb?s=60&d=retro'" +
+            "}");
+      } catch (JSONException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
 	  }
     return null;
 	}
