@@ -1,5 +1,6 @@
 package com.hackerleague.mobile;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import android.app.Activity;
@@ -33,20 +34,35 @@ public class HackathonDetailActivity extends Activity {
 		int total_hacks = intent.getIntExtra("total_hacks", 0);
 
 	    SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
-	    SimpleDateFormat renderer = new SimpleDateFormat("dd/MM/yyyy");
-	    start_time = renderer.format(parser.parse(start_time));
-	    end_time = renderer.format(parser.parse(end_time));
+	    SimpleDateFormat renderer = new SimpleDateFormat("MM/dd/yyyy");
+	    try {
+			start_time = renderer.format(parser.parse(start_time));
+			end_time = renderer.format(parser.parse(end_time));
+		} catch (ParseException e1) { e1.printStackTrace(); }
 
 	    ImageView logoView = (ImageView) this.findViewById(R.id.hackathonLogo);
 	    TextView titleView = (TextView) this.findViewById(R.id.hackathonTitle);
 	    TextView totalsView = (TextView) this.findViewById(R.id.hackathonTotals);
-	    TextView totalsView = (TextView) this.findViewById(R.id.hackathonTotals);
-	    TextView totalsView = (TextView) this.findViewById(R.id.hackathonTotals);
-	    TextView totalsView = (TextView) this.findViewById(R.id.hackathonTotals);
+	    TextView startView = (TextView) this.findViewById(R.id.hackathonStart);
+	    TextView endView = (TextView) this.findViewById(R.id.hackathonEnd);
+	    TextView descView = (TextView) this.findViewById(R.id.hackathonDesc);
+	    TextView locationView = (TextView) this.findViewById(R.id.hackathonLocation);
+
+	    String location;
+	    if (city.compareToIgnoreCase("Anywhere") == 0) {
+	    	location = "Anywhere";
+	    } else {
+	    	location = city + ", " + "state" + ", " + country;
+	    }
+
 	    try {
 	    	UrlImageViewHelper.setUrlDrawable(logoView, logo);
 		    titleView.setText(name);
-		    dateView.setText(formattedDate);
+		    totalsView.setText("Total Hackers: " + total_hackers + " | Total Hacks: " + total_hacks);
+		    startView.setText("Start Date: " + start_time);
+		    endView.setText("End Date: " + end_time);
+		    descView.setText(description);
+		    locationView.setText(location);
 	    } catch(Exception e) {
 	    	Log.e("hackerleague", e.toString());
 	    }

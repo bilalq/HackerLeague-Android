@@ -28,42 +28,42 @@
             android:id="@+id/hackathonTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="Hackathon"
             android:textSize="30sp" />
         
         <TextView
             android:id="@+id/hackathonTotals"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="Total Hackers: 34 | Total Hacks: 19"
             android:textSize="15sp" />
 
         <TextView
             android:id="@+id/hackathonStart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="04/23/2013"
             android:textSize="15sp" />
         
         <TextView
             android:id="@+id/hackathonEnd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="04/24/2013"
             android:textSize="15sp" />
         
         <TextView
             android:id="@+id/hackathonDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="Lorem ipsum dolores set afsdaf fdsa fsad fsda fsadfjsd fsdaf dsalk fjsdaf jsadfjsdlfjsd flksdjf sdafsdjklf sdjlfsdkl fskljfdsjkldfsajkldfsajk fdsajklfdskjfasdklfjsdkf asdf sdaf dsfsadf sadf sad fsd fds fsd fsda fdsbgfvgtbtgftsdgftdsgtgtgtg ."
             android:textSize="15sp" />
         
         <TextView
             android:id="@+id/hackathonLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="New Brunswick, NJ, USA"
             android:textSize="15sp" />
 
     </LinearLayout>
