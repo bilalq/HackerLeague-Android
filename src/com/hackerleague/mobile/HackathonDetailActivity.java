@@ -65,7 +65,7 @@ public class HackathonDetailActivity extends Activity {
 		    locationView.setText(location);
 	    } catch(Exception e) {
 	    	Log.e("hackerleague", e.toString());
-	    }
+//	    }
 
 	}
 
