@@ -1,13 +1,43 @@
 package com.hackerleague.mobile;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
+
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class ProfileActivity extends Activity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     this.setContentView(R.layout.activity_profile);
+    HackerLeagueRestClient client = null;
+    try {
+      client = new HackerLeagueRestClient();
+    } catch (JSONException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+    JSONObject user = client.getUser("Andrew");
+    ImageView profileImageView = (ImageView) this.findViewById(R.id.profile_image);
+    TextView nameView = (TextView) this.findViewById(R.id.name);
+    TextView usernameView = (TextView) this.findViewById(R.id.username);
+    try {
+      UrlImageViewHelper.setUrlDrawable(profileImageView, user.getString("profile_image"));
+      nameView.setText(user.getString("name"));
+      usernameView.setText(user.getString("username"));
+//      dateView.setText(hackathon.getString("start_time"));
+    } catch(Exception e) {
+      Log.e("hackerleague", e.toString());
+    }
   }
 
   @Override
