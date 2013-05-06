@@ -27,14 +27,16 @@ public class ProfileActivity extends Activity {
       e.printStackTrace();
     }
     JSONObject user = client.getUser("Andrew");
+    Log.i("USER", user.toString());
     ImageView profileImageView = (ImageView) this.findViewById(R.id.profile_image);
     TextView nameView = (TextView) this.findViewById(R.id.name);
     TextView usernameView = (TextView) this.findViewById(R.id.username);
+    TextView bioView = (TextView) this.findViewById(R.id.bio);
     try {
-      UrlImageViewHelper.setUrlDrawable(profileImageView, user.getString("profile_image"));
+      UrlImageViewHelper.setUrlDrawable(profileImageView, user.getString("image"));
       nameView.setText(user.getString("name"));
       usernameView.setText(user.getString("username"));
-//      dateView.setText(hackathon.getString("start_time"));
+      bioView.setText(user.getString("bio"));
     } catch(Exception e) {
       Log.e("hackerleague", e.toString());
     }

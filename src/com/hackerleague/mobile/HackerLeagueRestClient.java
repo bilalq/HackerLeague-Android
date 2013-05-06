@@ -110,10 +110,10 @@ public class HackerLeagueRestClient {
 	      String hacks = this.hackathons.getJSONObject(2).getString("hacks");
         return new JSONObject("{" +
         		"'name': 'Andrew Jaeger'" +
-        		"'username': 'mrjaeger'" +
-        		"'bio': 'I am someone who has been hacking now for two years and am proficient in JS/HTML/CSS, ROR and Node.js.  Im also a ping pong master so come at me.'" +
-        		"'hacks': '" + hacks + "'" +
-        		"image': 'https://secure.gravatar.com/avatar/9a1e4645bf8f7dbce06e950ea9411379?s=60&d=retro'" +
+        		",'username': 'mrjaeger'" +
+        		",'bio': 'I am someone who has been hacking now for two years and am proficient in JS/HTML/CSS, ROR and Node.js.  Im also a ping pong master so come at me.'" +
+        		",'hacks': '" + hacks + "'" +
+        		",'image': 'https://secure.gravatar.com/avatar/9a1e4645bf8f7dbce06e950ea9411379?s=60&d=retro'" +
         		"}");
       } catch (JSONException e) {
         // TODO Auto-generated catch block

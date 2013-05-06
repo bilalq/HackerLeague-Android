@@ -43,7 +43,7 @@ public class HackathonsListActivity extends ListActivity {
 					long arg3) {
 				JSONObject obj = (JSONObject) list.getItemAtPosition(arg2);
 				try {
-					Intent detailIntent = new Intent(HackathonsListActivity.this, HackathonDetailActivity.class)
+					Intent detailIntent = new Intent(HackathonsListActivity.this, HackathonDetailActivity.class);
 					detailIntent.putExtra("id", obj.getString("id"));
 					detailIntent.putExtra("name", obj.getString("name"));
 					detailIntent.putExtra("description", obj.getString("description"));
@@ -69,8 +69,11 @@ public class HackathonsListActivity extends ListActivity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
+	  //
 	    switch (item.getItemId()) {
 		    case R.id.action_profile:
+		      Intent profileIntent = new Intent(this, ProfileActivity.class);
+          startActivity(profileIntent);
 		        return true;
 		    case R.id.action_past:
 		        return true;
