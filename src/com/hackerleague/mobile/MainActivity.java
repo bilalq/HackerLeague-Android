@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnKeyListener;
 import android.widget.EditText;
@@ -35,9 +34,9 @@ public class MainActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		this.getMenuInflater().inflate(R.menu.main, menu);
-		MenuItem item = menu.findItem(R.id.action_profile);
-		item.setVisible(false);
+//		this.getMenuInflater().inflate(R.menu.main, menu);
+//		MenuItem item = menu.findItem(R.id.action_profile);
+//		item.setVisible(false);
 		return true;
 	}
 
@@ -45,7 +44,7 @@ public class MainActivity extends Activity {
 		Activity mainAct = this;
 
 		//Login here
-		String username = ((EditText)mainAct.findViewById(R.id.emailText)).getText().toString();
+		String username = ((EditText)mainAct.findViewById(R.id.usernameText)).getText().toString();
 		String password = ((EditText)mainAct.findViewById(R.id.passwordText)).getText().toString();
 
 

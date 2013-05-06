@@ -6,33 +6,37 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/backrepeat"
     tools:context=".MainActivity" >
     
     <ImageView
       android:id="@+id/imageView1"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:src="@drawable/ic_launcher" />
+      android:layout_centerHorizontal="true"      
+	    android:layout_marginBottom="20dp"
+      android:src="@drawable/ic_launcher" 
+      android:contentDescription="LOGO"/>
     
 	<TextView
-	    android:id="@+id/emailLabel"
+	    android:id="@+id/usernameLabel"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:layout_above="@+id/passwordText"
 	    android:layout_alignLeft="@+id/passwordLabel"
 	    android:layout_marginBottom="41dp"
-	    android:text="@string/email" />
+	    android:text="@string/username" />
 
 	<EditText
-	    android:id="@+id/emailText"
+	    android:id="@+id/usernameText"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
-	    android:layout_alignBaseline="@+id/emailLabel"
-	    android:layout_alignBottom="@+id/emailLabel"
+	    android:layout_alignBaseline="@+id/usernameLabel"
+	    android:layout_alignBottom="@+id/usernameLabel"
 	    android:layout_alignLeft="@+id/passwordText"
 	    android:ems="10"
-	    android:hint="Email"
-	    android:inputType="textEmailAddress" >
+	    android:hint="Username"
+	    android:inputType="text" >
 	
 	    <requestFocus />
 	</EditText>
