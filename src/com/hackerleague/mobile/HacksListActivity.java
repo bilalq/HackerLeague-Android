@@ -8,6 +8,7 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -75,4 +76,36 @@ public class HacksListActivity extends ListActivity {
 		return true;
 	}
 
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		//
+		switch (item.getItemId()) {
+		case R.id.action_profile:
+			Intent profileIntent = new Intent(this, ProfileActivity.class);
+			startActivity(profileIntent);
+			return true;
+		case R.id.action_past:
+			Intent pastIntent = new Intent(this, HackathonsListActivity.class);
+			pastIntent.putExtra("time", "past");
+			startActivity(pastIntent);
+			return true;
+		case R.id.action_happening:
+			Intent happeningIntent = new Intent(this, HackathonsListActivity.class);
+			happeningIntent.putExtra("time", "happening");
+			startActivity(happeningIntent);
+			return true;
+		case R.id.action_upcoming:
+			Intent upcomingIntent = new Intent(this, HackathonsListActivity.class);
+			upcomingIntent.putExtra("time", "upcoming");
+			startActivity(upcomingIntent);
+			return true;
+		case R.id.action_logout:
+			Intent logoutIntent = new Intent(this, MainActivity.class);
+			logoutIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(logoutIntent);
+			return true;
+		default:
+			return false;
+		}
+	}
 }
