@@ -11,21 +11,21 @@
         android:layout_marginLeft="4dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="4dp"
-        android:src="@drawable/ic_launcher" android:contentDescription="Screenshot">
+        android:src="@drawable/ic_launcher" >
     </ImageView>
     
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
-        
-	    <TextView
-		    android:id="@+id/hack_title"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-            android:textSize="20sp" />
-	        android:text="Hack Name" />
 	    
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/hack_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hack Name"
+        android:textSize="20sp" />
 
 </LinearLayout>
