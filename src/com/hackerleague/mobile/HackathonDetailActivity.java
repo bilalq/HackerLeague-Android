@@ -8,6 +8,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -32,7 +35,7 @@ public class HackathonDetailActivity extends Activity {
 		String country = intent.getStringExtra("country");
 		int total_hackers = intent.getIntExtra("total_hackers", 0);
 		int total_hacks = intent.getIntExtra("total_hacks", 0);
-		String hacks = intent.getStringExtra("hacks");
+		final String hacks = intent.getStringExtra("hacks");
 
 	    SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
 	    SimpleDateFormat renderer = new SimpleDateFormat("MM/dd/yyyy");
@@ -48,6 +51,15 @@ public class HackathonDetailActivity extends Activity {
 	    TextView endView = (TextView) this.findViewById(R.id.hackathonEnd);
 	    TextView descView = (TextView) this.findViewById(R.id.hackathonDesc);
 	    TextView locationView = (TextView) this.findViewById(R.id.hackathonLocation);
+
+	    Button hacksButton = (Button) this.findViewById(R.id.hacks_button);
+	    hacksButton.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				Intent hacksIntent = new Intent(HackathonDetailActivity.this, HacksListActivity.class);
+				hacksIntent.putExtra("hacks", hacks);
+				startActivity(hacksIntent);
+			}
+		});
 
 	    String location;
 	    if (city.compareToIgnoreCase("Anywhere") == 0) {
