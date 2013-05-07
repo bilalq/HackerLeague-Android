@@ -23,17 +23,20 @@ public class HacksListActivity extends ListActivity {
 		setContentView(R.layout.hackslist);
 		Intent intent = this.getIntent();
 
-		final JSONArray hacks;
+		JSONArray temphacks;
 		String hacksString = intent.getStringExtra("hacks");
 		try {
 			if (hacksString == null || hacksString.isEmpty()) {
-				hacks = new JSONArray();
+				temphacks = new JSONArray();
 			} else {
-				hacks = new JSONArray(hacksString);
+				temphacks = new JSONArray(hacksString);
 			}
 		} catch (JSONException e) {
+		  temphacks = new JSONArray();
 		}
 
+		final JSONArray hacks = temphacks;
+		
 		HacksArrayAdapter adapter = new HacksArrayAdapter(this, hacks);
 		this.setListAdapter(adapter);
 
@@ -42,7 +45,7 @@ public class HacksListActivity extends ListActivity {
 		list.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
-				JSONObject hack;
+				JSONObject hack = null;
 				try {
 					hack = hacks.getJSONObject(arg2);
 					if (hack != null) {
