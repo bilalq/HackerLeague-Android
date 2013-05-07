@@ -20,7 +20,7 @@ public class HacksListActivity extends ListActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.hackslist);
+		setContentView(R.layout.activity_hack);
 		Intent intent = this.getIntent();
 
 		JSONArray temphacks;
@@ -36,7 +36,7 @@ public class HacksListActivity extends ListActivity {
 		}
 
 		final JSONArray hacks = temphacks;
-		
+
 		HacksArrayAdapter adapter = new HacksArrayAdapter(this, hacks);
 		this.setListAdapter(adapter);
 
@@ -62,7 +62,7 @@ public class HacksListActivity extends ListActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.hacks_list, menu);
+		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
 

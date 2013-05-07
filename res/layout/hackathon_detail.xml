@@ -81,6 +81,13 @@
                 android:layout_height="wrap_content"
                 android:text="New Brunswick, NJ, USA"
                 android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/hacks_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="See Hacks" />
+
         </LinearLayout>
     </ScrollView>
 
