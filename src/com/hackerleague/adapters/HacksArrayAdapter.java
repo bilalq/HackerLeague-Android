@@ -1,5 +1,6 @@
 package com.hackerleague.adapters;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.Context;
@@ -19,7 +20,7 @@ public class HacksArrayAdapter extends ArrayAdapter<JSONObject> {
 	private final JSONObject[] values;
 
 	public HacksArrayAdapter(Context context, JSONObject[] values) {
-		super(context, R.layout.hackslist);
+		super(context, R.layout.hackslist, values);
 		this.context = context;
 		this.values = values;
 	}
@@ -36,10 +37,12 @@ public class HacksArrayAdapter extends ArrayAdapter<JSONObject> {
 	    TextView titleView = (TextView) rowView.findViewById(R.id.hack_title);
 
 	    try {
-	    	String url = hack.getString("screenshot");
-	    	if (! (url == null || url.isEmpty())) {
-		    	UrlImageViewHelper.setUrlDrawable(iconView, hack.getString("screenshot"));
-	    	}
+	    	try {
+		    	String url = hack.getString("screenshot");
+		    	if (! (url == null || url.isEmpty())) {
+			    	UrlImageViewHelper.setUrlDrawable(iconView, hack.getString("screenshot"));
+		    	}
+	    	} catch (JSONException e) {}
 		    titleView.setText(hack.getString("name"));
 	    } catch(Exception e) { Log.e("hackerleague", e.toString()); }
 
