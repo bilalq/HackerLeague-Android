@@ -5,10 +5,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.hackerleague.mobile.R;
 import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
@@ -36,12 +39,16 @@ public class HacksArrayAdapter extends ArrayAdapter<JSONArray> {
 			e.printStackTrace();
 		}
 
+	    ImageView iconView = (ImageView) rowView.findViewById(R.id.screenshot);
+	    TextView titleView = (TextView) rowView.findViewById(R.id.hack_title);
+
 	    try {
-	    	UrlImageViewHelper.setUrlDrawable(iconView, hackathon.getString("logo"));
-		    titleView.setText(hackathon.getString("name"));
-	    } catch(Exception e) {
-	    	Log.e("hackerleague", e.toString());
-	    }
+	    	String url = hack.getString("screenshot");
+	    	if (! (url == null || url.isEmpty())) {
+		    	UrlImageViewHelper.setUrlDrawable(iconView, hack.getString("screenshot"));
+	    	}
+		    titleView.setText(hack.getString("name"));
+	    } catch(Exception e) { Log.e("hackerleague", e.toString()); }
 
 		return rowView;
 	}
