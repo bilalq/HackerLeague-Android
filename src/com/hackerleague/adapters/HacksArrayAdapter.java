@@ -36,7 +36,7 @@ public class HacksArrayAdapter extends ArrayAdapter<JSONObject> {
 	    TextView titleView = (TextView) rowView.findViewById(R.id.hack_title);
 
 	    try {
-	    	String url = hack.getString("screenshot");
+	    	String url = hack.getJSONObject("urls").getString("screenshot");
 	    	if (! (url == null || url.isEmpty())) {
 		    	UrlImageViewHelper.setUrlDrawable(iconView, hack.getString("screenshot"));
 	    	}
