@@ -1,7 +1,5 @@
 package com.hackerleague.adapters;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.Context;
@@ -16,11 +14,11 @@ import android.widget.TextView;
 import com.hackerleague.mobile.R;
 import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 
-public class HacksArrayAdapter extends ArrayAdapter<JSONArray> {
+public class HacksArrayAdapter extends ArrayAdapter<JSONObject> {
 	private final Context context;
-	private final JSONArray values;
+	private final JSONObject[] values;
 
-	public HacksArrayAdapter(Context context, JSONArray values) {
+	public HacksArrayAdapter(Context context, JSONObject[] values) {
 		super(context, R.layout.hackslist);
 		this.context = context;
 		this.values = values;
@@ -32,12 +30,7 @@ public class HacksArrayAdapter extends ArrayAdapter<JSONArray> {
 	        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	    View rowView = inflater.inflate(R.layout.hackslist, parent, false);
 
-	    JSONObject hack = null;
-		try {
-			hack = this.values.getJSONObject(position);
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
+	    JSONObject hack = this.values[position];
 
 	    ImageView iconView = (ImageView) rowView.findViewById(R.id.screenshot);
 	    TextView titleView = (TextView) rowView.findViewById(R.id.hack_title);

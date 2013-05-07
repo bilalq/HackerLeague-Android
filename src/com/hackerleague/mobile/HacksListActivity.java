@@ -32,12 +32,21 @@ public class HacksListActivity extends ListActivity {
 				temphacks = new JSONArray(hacksString);
 			}
 		} catch (JSONException e) {
+			System.out.println("WAT");
 		  temphacks = new JSONArray();
 		}
 
 		final JSONArray hacks = temphacks;
+		System.out.println("HACKS: " + hacks.length());
 
-		HacksArrayAdapter adapter = new HacksArrayAdapter(this, hacks);
+		final JSONObject[] hackObjects = new JSONObject[hacks.length()];
+		for (int i = 0; i < hacks.length(); i++) {
+			try {
+				hackObjects[i] = hacks.getJSONObject(i);
+			} catch (JSONException e) { }
+		}
+
+		HacksArrayAdapter adapter = new HacksArrayAdapter(this, hackObjects);
 		this.setListAdapter(adapter);
 
 		final ListView list = getListView();
