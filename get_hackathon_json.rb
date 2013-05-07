@@ -1,14 +1,12 @@
 require 'httparty'
 
-hackathons = HTTParty.get("https://www.hackerleague.org/api/v1/hackathons.json")
-good_hackathons = hackathons.select {|hackathon| hackathon["total_hacks"] > 10}
-good_hackathons_with_hacks = good_hackathons.map do |hackathon|
+hackathons = HTTParty.get("https://www.hackerleague.org/api/v1/hackathons.json?limit=100")
+hackathons_with_hacks = hackathons.map do |hackathon|
   hacks = HTTParty.get("https://www.hackerleague.org/api/v1/hackathons/#{hackathon['id']}/hacks.json")
   hackathon["hacks"] = hacks
   hackathon
 end
-json = good_hackathons_with_hacks.to_json
-p good_hackathons_with_hacks.length
+json = hackathons_with_hacks.to_json
 json.gsub!(/\'/, "")
 json.gsub!(/\"/, "\'")
 json.gsub!(/\\\'/, "")
