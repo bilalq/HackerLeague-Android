@@ -32,6 +32,7 @@ public class HackathonDetailActivity extends Activity {
 		String country = intent.getStringExtra("country");
 		int total_hackers = intent.getIntExtra("total_hackers", 0);
 		int total_hacks = intent.getIntExtra("total_hacks", 0);
+		String hacks = intent.getStringExtra("hacks");
 
 	    SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
 	    SimpleDateFormat renderer = new SimpleDateFormat("MM/dd/yyyy");
@@ -52,7 +53,7 @@ public class HackathonDetailActivity extends Activity {
 	    if (city.compareToIgnoreCase("Anywhere") == 0) {
 	    	location = "Anywhere";
 	    } else {
-	    	location = city + ", " + "state" + ", " + country;
+	    	location = city + ", " + state + ", " + country;
 	    }
 
 	    try {
@@ -65,7 +66,7 @@ public class HackathonDetailActivity extends Activity {
 		    locationView.setText(location);
 	    } catch(Exception e) {
 	    	Log.e("hackerleague", e.toString());
-//	    }
+	    }
 
 	}
 

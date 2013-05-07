@@ -69,6 +69,7 @@ public class HackathonsListActivity extends ListActivity {
 					detailIntent.putExtra("end_time", obj.getString("end_time"));
 					detailIntent.putExtra("total_hackers", obj.getInt("total_hackers"));
 					detailIntent.putExtra("total_hacks", obj.getInt("total_hacks"));
+					detailIntent.putExtra("hacks", obj.getJSONArray("hacks").toString());
 					try {
 						JSONObject location = obj.getJSONObject("location");
 						detailIntent.putExtra("city", location.getString("city"));
@@ -110,7 +111,7 @@ public class HackathonsListActivity extends ListActivity {
 		    case R.id.action_upcoming:
           Intent upcomingIntent = new Intent(this, HackathonsListActivity.class);
           upcomingIntent.putExtra("time", "upcoming");
-          startActivity(upcomingIntent);  
+          startActivity(upcomingIntent);
           return true;
 		    case R.id.action_logout:
 		    	Intent logoutIntent = new Intent(this, MainActivity.class);

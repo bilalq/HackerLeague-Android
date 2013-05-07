@@ -7,8 +7,9 @@
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="16" />
-    
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
 
     <application
         android:allowBackup="true"
@@ -24,32 +25,36 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-         <activity
+        <activity
             android:name="com.hackerleague.mobile.HackathonsListActivity"
-            android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-         </activity> 
-          <activity
-            android:name="com.hackerleague.mobile.ProfileActivity"
-            android:label="@string/app_name" >
+            android:label="Hackathons" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-          <activity
-            android:name="com.hackerleague.mobile.HackathonDetailActivity"
-            android:label="@string/app_name" >
+        <activity
+            android:name="com.hackerleague.mobile.ProfileActivity"
+            android:label="Profile" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.hackerleague.mobile.HackathonDetailActivity"
+            android:label="Hackathon" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.hackerleague.mobile.HacksListActivity"
+            android:label="@string/title_activity_hacks_list" >
         </activity>
     </application>
 

@@ -43,7 +43,7 @@ public class HackathonArrayAdapter extends ArrayAdapter<JSONObject> {
 	    	UrlImageViewHelper.setUrlDrawable(iconView, hackathon.getString("logo"));
 		    titleView.setText(hackathon.getString("name"));
 		    Date original = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").parse(hackathon.getString("start_time"));
-		    String formattedDate = new SimpleDateFormat("dd/MM/yyyy").format(original);
+		    String formattedDate = new SimpleDateFormat("MM/dd/yyyy").format(original);
 		    dateView.setText(formattedDate);
 	    } catch(Exception e) {
 	    	Log.e("hackerleague", e.toString());
